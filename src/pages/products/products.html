@@ -1,0 +1,88 @@
+<!--
+  Generated template for the ProductsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar  hideBackButton="true">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Products</ion-title>
+    <ion-buttons end>
+        <button  (click)="openSearch()"><ion-icon name="search"></ion-icon>
+        </button>
+        <button (click)="cart()">
+            <ion-icon name="cart"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-scroll scrollX style="height: 88px;margin-top: 2px">
+      <div style="width:100px">
+        <div class="scroll-item" *ngFor="let category of categories | async" (click)="getProduts(item)" 
+          [ngClass]="{'active':category.active}">
+          <span class="caption">{{category.name}}</span>
+        </div>               
+      </div>
+    </ion-scroll>
+
+
+    <div class="card" style="border-style: none;box-shadow: none;margin-top: 20%;">
+        <div class="item text-center item-text-wrap"> 
+          <p style="color:grey">No products found,</p>
+          <p style="color:grey">Try to change your preferences..</p>
+          <span class="icon ion-sad-outline" style="font-size: 160px;color:grey;"></span>
+        </div>
+    </div> 
+
+
+    <ion-scroll style="padding-bottom: 8px;height:100vh" direction="y">
+        <div style="height:20*170px" >
+          <div class="nopadding noborder" *ngFor="let product of products" style="margin:0" >
+            <div class="row">
+              <div class="col col-50 nopadding">
+                <div class="card rel" style="margin-bottom: 0;">
+                  <img src= "{{products[$index].imageUrl}}" class="img">                
+                  <div class="text bottom-info">
+                    <p class="bold text-center">{{product.name}}</p>
+                    <p class="bold text-center energized" style="font-size: 18px;">
+                        <img src="img/rupee.png" style="height:13px;width:13px">
+                        <span>                        
+                          {{product.price}}/-<span style="font-size: small;">{{product.quantity}}</span>
+                        </span>
+                    </p>                    
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col col-50 nopadding" *ngIf="products[$index+1].name">
+                <div class="card rel" style="margin-bottom: 0;">
+                  <img src="{{products[$index+1].imageUrl}}" class="img">
+                  <div class="text bottom-info">
+                    <p class="bold text-center">{{products[$index+1].name}}</p>
+                    <p class="bold text-center energized" style="font-size: 18px;">
+                      <img src="img/rupee.png" style="height:13px;width:13px">
+                      <span>                        
+                        {{products[$index+1].sp}}/-<span style="font-size: small;">{{products[$index+1].unit}}</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>          
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </ion-scroll>
+
+
+    <div *ngFor="let product of products | async">
+
+      {{product.name}}
+
+    </div> 
+</ion-content>

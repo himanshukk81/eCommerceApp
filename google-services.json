@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "110812484066",
+    "firebase_url": "https://autorepair-1510293342488.firebaseio.com",
+    "project_id": "autorepair-1510293342488",
+    "storage_bucket": "autorepair-1510293342488.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110812484066:android:d40db220e26f8883",
+        "android_client_info": {
+          "package_name": "com.rsdc.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110812484066-vrbt7ovet6mv9j31jgje5ln5hngm1qqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuSf0zGeMZsgceXvXXLiJZGWKdRoRJQOY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110812484066:android:7a4082f811682f28",
+        "android_client_info": {
+          "package_name": "com.example.himanshu.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110812484066-ht0aojeca298fiv5mdv99mnf7633lnc8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.himanshu.myapplication",
+            "certificate_hash": "8cf9d39c8d03dc796cf62d4039fbed59e6323f54"
+          }
+        },
+        {
+          "client_id": "110812484066-vrbt7ovet6mv9j31jgje5ln5hngm1qqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuSf0zGeMZsgceXvXXLiJZGWKdRoRJQOY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110812484066-nphgrqt6f31vd2lfl7d3156ivcvp1ci6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rsdc.application"
+              }
+            },
+            {
+              "client_id": "110812484066-vrbt7ovet6mv9j31jgje5ln5hngm1qqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

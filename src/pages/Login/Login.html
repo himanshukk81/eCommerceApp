@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+
+
+
+
+    <!-- <button ion-button full primary (click)="start()">Start Tracking</button>
+    <button ion-button full primary (click)="stop()">Stop Tracking</button> -->
+  </ion-list>
+
+<div padding>
+  <button ion-button block (click)="login()">Sign In</button>
+</div>
+
+
+<div text-center>
+  <button ion-button round outline (click)="signUp()">New User?</button>
+</div>
+
+
+<img src="../../assets/imgs/user.png" style="width:80px;height:80px">
+<br/><br/><br/><br/>
+<!-- <div>
+  <button ion-button round outline (click)="updateUser()">update user</button>
+</div> -->
+
+  <!-- <ion-list text-center>
+     <ion-item >
+      <ion-label color="primary" stacked>Mobile No.</ion-label>
+      <ion-input clearInput [(ngModel)]="user.mobileNo"></ion-input>
+     </ion-item> 
+
+     <ion-item>
+      <ion-label color="primary" stacked>Password</ion-label>
+      <ion-input clearInput [(ngModel)]="user.password"></ion-input>
+     </ion-item> 
+
+     <ion-item>
+      <button ion-button outline (click)="login()">Login</button> 
+     </ion-item>
+     <br/><br/><br/>
+
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <button ion-button  (click)="fbLogin()"><ion-icon name="logo-facebook"></ion-icon> <span style="color:white"> Facebook</span></button>
+        </ion-col>
+        <ion-col>
+          <button ion-button color="danger" (click)="googleLogin()"><ion-icon name="logo-googleplus"></ion-icon> <span style="color:white">   Google</span></button> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>  -->
+
+
+  <ion-grid>
+      <ion-row>
+        <ion-col col-1>
+
+        </ion-col>
+        <ion-col>
+            <button ion-button  (click)="fbLogin()"><ion-icon name="logo-facebook"></ion-icon> <span style="color:white"> Facebook</span></button>
+        </ion-col>
+        <ion-col>
+          <button ion-button color="danger" (click)="googleLogin()"><ion-icon name="logo-googleplus"></ion-icon> <span style="color:white">   Google</span></button> 
+        </ion-col>
+        <ion-col col-1>
+
+        </ion-col>
+      </ion-row>
+  </ion-grid> 
+  <div text-center *ngIf="loader">
+          <ion-spinner name="circles" ></ion-spinner>
+  </div>  
+</ion-content>

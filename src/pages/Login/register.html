@@ -1,0 +1,45 @@
+
+
+<ion-header>
+    <ion-navbar>
+        <ion-title>User</ion-title>
+        <ion-buttons end>
+        <button ion-button (click)="closeModal()">Close</button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="user.first_name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Address</ion-label>
+        <ion-textarea [(ngModel)]="user.address" ></ion-textarea>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Mobile</ion-label>
+        <ion-input type="text" [(ngModel)]="user.mobile" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="text" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Confirm Password</ion-label>
+        <ion-input type="text" [(ngModel)]="user.confirmPassword" ></ion-input>
+      </ion-item>
+      <button ion-button type="submit" block (click)="saveUser()">Add User</button>
+    
+</ion-content>

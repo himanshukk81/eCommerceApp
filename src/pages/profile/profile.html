@@ -1,0 +1,67 @@
+<style media="screen">
+    .plainText {
+        text-decoration: none;
+    }
+</style>
+
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="home">
+    <ion-card>
+        <img src="../../assets/imgs/user.png" *ngIf="user && (!user['picture'] && !user['imageUrl'])" style="width:80px;height:80px">
+          
+         <!-- <img src="{{user.imageUrl}}" *ngIf="user && user.imageUrl">  -->
+
+         <!-- <img [src]="user.picture" *ngIf="user &&  user.picture" style="width:50px;height:50px"> 
+         <img [src]="user.imageUrl" *ngIf="user && user.imageUrl" style="width:50px;height:50px">  -->
+
+         <img src="{{user.imageUrl}}" *ngIf="user.imageUrl" style="width:50px;height:50px">
+         <img src="{{user.picture}}" *ngIf="user.picture" style="width:50px;height:50px">
+        <ion-card-content>
+            <ion-card-title>
+
+                <p *ngIf="user['first_name']">{{user.first_name}}</p>
+                <p *ngIf="user['displayName']">{{user.displayName}}</p>
+
+                
+            </ion-card-title>
+            
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            Detail
+        </ion-card-header>
+        <ion-card-content>
+            <!-- Hello World -->
+        </ion-card-content>
+        <ion-list>
+            <button ion-item *ngIf="user['email']">
+                <ion-icon name="mail" item-left></ion-icon>
+                <a class="plainText" href="{{user.email}}">{{user.email}}</a>
+            </button>
+
+            <!-- <button ion-item>
+                <ion-icon name="skype" ios="logo-skype" md="logo-skype" item-left></ion-icon>
+                <a class="plainText" href="skype:smkamranqadri">smkamranqadri</a>
+            </button> -->
+
+            <button ion-item *ngIf="user['mobile']">
+                <ion-icon name="call" item-left></ion-icon>
+                <a class="plainText" href="tel:+"+{{user.mobile}}>{{user.mobile}}</a>
+            </button>
+
+
+        </ion-list>
+    </ion-card>
+</ion-content>

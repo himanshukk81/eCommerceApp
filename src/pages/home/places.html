@@ -1,0 +1,21 @@
+<ion-header>
+<ion-navbar>
+    <ion-title>Places</ion-title>
+    <ion-buttons end>
+    <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
+</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+   <!-- <ion-list> -->
+    
+        <div [formGroup]="myGroup"> 
+            <ion-input formControlName="placeAutofill"  [(ngModel)]="user.destiny" id="googlePlaces" placeholder="Search Box" required></ion-input>
+        </div> 
+         
+    
+   <!-- </ion-list> -->
+</ion-content>

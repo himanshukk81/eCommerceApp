@@ -1,0 +1,31 @@
+<ion-header>
+   <ion-navbar hideBackButton="true">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+     <ion-title>Users</ion-title>
+   </ion-navbar>
+</ion-header>
+ 
+ <ion-content>
+
+    <ion-spinner name="dots" *ngIf="loader"></ion-spinner>
+    
+      <ion-list>
+        <ion-item *ngFor="let user of users | async" (click)="userDetail(user)">
+
+          <div *ngIf="user.email!=userInfo">
+              <ion-avatar item-start>
+                <img src="../../assets/imgs/user.png" *ngIf="!user.imageUrl && !user.picture">
+                <img src="{{user.imageUrl}}" *ngIf="user.imageUrl">
+                <img src="{{user.picture}}" *ngIf="user.picture">
+              </ion-avatar>
+              <h2 *ngIf="user.first_name">{{user.first_name}}</h2>
+              <h3>{{user.email}}</h3>
+              <h4 >{{user.mobile}}</h4>
+              <p> {{user.address}}</p> 
+          </div>    
+        </ion-item>
+      </ion-list>
+  
+ </ion-content>
