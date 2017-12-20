@@ -18,7 +18,8 @@ import { SessionService } from '../../app/sessionservice';
 })
 export class ProductsPage {
   categories: FirebaseListObservable<any[]>;
-  products:any;
+  products:any=[];
+  categoryInfo:any={};
   constructor(public service:SessionService,public db: AngularFireDatabase,public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -31,12 +32,14 @@ export class ProductsPage {
 
 
 
-  getProduts(category)
+  getProducts(category)
   {
+
+    this.categoryInfo.value;
     this.db.list('/products',{
       query:{
         orderByChild:'categoryId',
-        equalTo:category.key,
+        equalTo:category,
       },
     }).subscribe(snapshot => {
           this.products=snapshot;

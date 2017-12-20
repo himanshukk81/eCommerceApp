@@ -21,17 +21,24 @@
 </ion-header>
 
 <ion-content>
-    <ion-scroll scrollX style="height: 88px;margin-top: 2px">
-      <div style="width:100px">
-        <div class="scroll-item" *ngFor="let category of categories | async" (click)="getProduts(item)" 
-          [ngClass]="{'active':category.active}">
-          <span class="caption">{{category.name}}</span>
-        </div>               
-      </div>
+
+    <ion-scroll scrollX="true" style="width:100vw;height:88px" >
+        <ion-toolbar no-border-top>
+            <ion-segment [(ngModel)]="categoryInfo.value" (click)="getProducts(categoryInfo)">
+                <!-- <ion-segment-button *ngFor="let category of categories | async"  value="1">{{category.name}}</ion-segment-button> -->
+                <ion-segment-button value="1">Jobs By Skills</ion-segment-button>
+                <ion-segment-button value="2">Jobs By Location</ion-segment-button>
+                <ion-segment-button value="3">Jobs By Company</ion-segment-button>
+           
+              </ion-segment>
+        </ion-toolbar>
     </ion-scroll>
+    
 
 
-    <div class="card" style="border-style: none;box-shadow: none;margin-top: 20%;">
+
+
+    <div class="card" style="border-style: none;box-shadow: none;margin-top: 20%;" *ngIf="products.length==0">
         <div class="item text-center item-text-wrap"> 
           <p style="color:grey">No products found,</p>
           <p style="color:grey">Try to change your preferences..</p>
@@ -40,34 +47,34 @@
     </div> 
 
 
-    <ion-scroll style="padding-bottom: 8px;height:100vh" direction="y">
-        <div style="height:20*170px" >
-          <div class="nopadding noborder" *ngFor="let product of products" style="margin:0" >
+    <ion-scroll style="padding-bottom: 8px;height:'{{products.length}}'*90vh" scrollX="true">
+        <!-- <div style="height:100vh" > -->
+          <div class="nopadding noborder" *ngFor="let product of products;let last=last;let index=index" style="margin:0" >
             <div class="row">
               <div class="col col-50 nopadding">
                 <div class="card rel" style="margin-bottom: 0;">
-                  <img src= "{{products[$index].imageUrl}}" class="img">                
+                  <img src= "{{products[index].imageUrl}}" class="img">                
                   <div class="text bottom-info">
-                    <p class="bold text-center">{{product.name}}</p>
+                    <p class="bold text-center">{{products[index].name}}</p>
                     <p class="bold text-center energized" style="font-size: 18px;">
                         <img src="img/rupee.png" style="height:13px;width:13px">
                         <span>                        
-                          {{product.price}}/-<span style="font-size: small;">{{product.quantity}}</span>
+                          {{products[index].price}}/-<span style="font-size: small;">{{products[index].quantity}}</span>
                         </span>
                     </p>                    
                   </div>
                 </div>
               </div>
               
-              <div class="col col-50 nopadding" *ngIf="products[$index+1].name">
-                <div class="card rel" style="margin-bottom: 0;">
-                  <img src="{{products[$index+1].imageUrl}}" class="img">
+              <div class="col col-50 nopadding" *ngIf="!last">
+                <div class="card rel" style="margin-bottom: 0;" *ngIf="products[index+1].name">
+                  <img src="{{products[index+1].imageUrl}}" class="img">
                   <div class="text bottom-info">
-                    <p class="bold text-center">{{products[$index+1].name}}</p>
+                    <p class="bold text-center">{{products[index+1].name}}</p>
                     <p class="bold text-center energized" style="font-size: 18px;">
                       <img src="img/rupee.png" style="height:13px;width:13px">
                       <span>                        
-                        {{products[$index+1].sp}}/-<span style="font-size: small;">{{products[$index+1].unit}}</span>
+                        {{products[index+1].sp}}/-<span style="font-size: small;">{{products[index+1].unit}}</span>
                       </span>
                     </p>
                   </div>
@@ -76,13 +83,9 @@
 
             </div>
           </div>
-        </div>
+        <!-- </div> -->
     </ion-scroll>
 
 
-    <div *ngFor="let product of products | async">
-
-      {{product.name}}
-
-    </div> 
+    
 </ion-content>
